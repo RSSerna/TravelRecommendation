@@ -1,14 +1,14 @@
 const btnSearch = document.getElementById('btnSearch');
+const btnReset = document.getElementById('btnReset');
 const resultDiv = document.getElementById('result');
 
 function searchCondition() {
     const input = document.getElementById('conditionInput').value.toLowerCase();
     resultDiv.innerHTML = '';
-
+    var dataFound = "";
     fetch('travel_recommendation_api.json')
         .then(response => response.json())
         .then(data => {
-            var dataFound = "";
             for (const category in data) {
                 if (data.hasOwnProperty(category)) {
                     data[category].forEach(item => {
@@ -17,7 +17,7 @@ function searchCondition() {
                                 dataFound += `<h1>${item.name}</h1>`;
                             } else {
                                 dataFound += `<h2>${item.name}</h2>`;
-                                dataFound += `<img src="./img/${item.imageUrl}" alt="hjh">`;
+                                dataFound += `<img src="${item.imageUrl}" alt="hjh">`;
                                 dataFound += `<p><strong>Description:</strong> ${item.description}</p>`;
                             }
                         }
@@ -25,7 +25,7 @@ function searchCondition() {
                             item.cities.forEach(city => {
                                 if (city.name.toLowerCase().includes(input)) {
                                     dataFound += `<h2>${city.name}</h2>`;
-                                    dataFound += `<img src="./img/${city.imageUrl}" alt="hjh">`;
+                                    dataFound += `<img src="${city.imageUrl}" alt="hjh">`;
                                     dataFound += `<p><strong>Description:</strong> ${city.description}</p>`;
                                 }
                             });
@@ -33,14 +33,23 @@ function searchCondition() {
                     });
                 }
             }
-            if (str.length === 0) {
+            if (dataFound.length === 0) {
                 dataFound = 'No Matching Results';
             }
+            console.log('DataEnd:', dataFound);
+            resultDiv.innerHTML = dataFound;
         })
         .catch(error => {
             console.error('Error:', error);
             dataFound = 'An error occurred while fetching data.';
+            resultDiv.innerHTML = dataFound;
         });
-    resultDiv.innerHTML = dataFound;
 }
 btnSearch.addEventListener('click', searchCondition);
+
+function resetSearch() {
+    resultDiv.innerHTML = '';
+    document.getElementById('conditionInput').value = '';
+}
+
+btnReset.addEventListener('click', resetSearch);
