@@ -4,6 +4,41 @@
 		<meta charset="UTF-8">
 		<title>Health Analysis Data</title>
 		<link rel="stylesheet" href="./travel_recommendation.css">
+        <style>
+
+        html, body {
+            height: 100%; /* Set height of html and body to 100% of viewport */
+            margin: 0;
+            padding: 0;
+        }
+
+        footer {
+            position: absolute; /* Position footer absolutely */
+            bottom: 0; /* Position footer at the bottom */
+            left: 0; /* Position footer at the left */
+            width: 100%; /* Make footer span the full width */
+            background-color: #333; /* Set a background color for the footer */
+            color: #fff; /* Set text color to white */
+            text-align: center;
+            padding: 20px; /* Add some padding for spacing */
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .social-media {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-media li {
+            display: inline;
+            display: inline-block;
+            margin: 0 10px;
+        }   
+        </style>
 	</head>
 	<body>
 		<nav>
@@ -21,38 +56,19 @@
 			<div class="analysisForm">
 				<h1>Explore Dream Destinations</h1>
                 <h4>"The world is calling. Answer it. ✈️ TRAVEL NOW is your passport to adventure. Discover hidden gems, chase waterfalls, and create memories that will last a lifetime. Let's get lost in the magic of travel."</h4>
-				<!--<div>
-					<label for="name">Name:</label>
-					<input type="text" id="name">
-				</div>
-				<div>
-					<label>Gender:</label>
-					<label for="male">Male</label>
-					<input type="radio" name="gender" id="male" value="Male">
-					<label for="female">Female</label>
-					<input type="radio" name="gender" id="female" value="Female">
-				</div>
-				<div>
-					<label for="age">Age:</label>
-					<input type="number" id="age">
-				</div>
-				<div>
-					<label for="condition">Condition:</label>
-					<select id="condition">
-						<option value="">Select condition</option>
-						<option value="Diabetes">Diabetes</option>
-						<option value="Thyroid">Thyroid</option>
-						<option value="High Blood Pressure">High Blood Pressure</option>
-					</select>
-				</div>
-				<button id="addPatient">Add Patient</button>
-				<h2>Analysis Report</h2>
-				<div id="report"></div> -->
 			</div>
 			<div class="searchCondition">
 				<div id="result"></div>
 			</div>
 		</div>
+        <footer>
+          <button>Book Now</button>
+          <ul class="social-media">
+              <li><a href="#"><i class="fab fa-facebook-f">Facebook</i></a></li>
+              <li><a href="#"><i class="fab fa-instagram">Instagram</i></a></li>
+              <li><a href="#"><i class="fab fa-youtube">Youtube</i></a></li>
+          </ul>
+      </footer>
 		<script src="./travel_recommendation.js"></script>
 	</body>
 </html>
